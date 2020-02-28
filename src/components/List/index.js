@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { MdAdd } from 'react-icons/md';
-import { useDrag, useDrop } from 'react-dnd';
+import { useDrop } from 'react-dnd';
+
+import BoardContext from '../Board/context';
 
 import Card from '../Card';
 
 import { Container } from './styles';
 
 export default function List({ data, index: listIndex }) {
-  const [{ isDraggom }, dragRef] = useDrag({});
+  const { move } = useContext(BoardContext);
+
+  const [, drop] = useDrop({
+    accept: 'CARD',
+    drop: (monitor) => {
+      const itemIndex = monitor.index;
+      const itemListIndex = monitor.listIndex;
+
+      if (itemListIndex !== listIndex) {
+        console.log(itemListIndex, listIndex);
+        move(itemIndex, itemListIndex, listIndex);
+      }
+    }
+  });
 
   return (
-    <Container done={data.done}>
+    <Container done={data.done} ref={drop}>
       <header>
         <h2>{data.title}</h2>
         {data.creatable && (
@@ -28,3 +43,8 @@ export default function List({ data, index: listIndex }) {
     </Container>
   );
 }
+
+// logic
+// 1 - when pass to an empty space never have a card,
+//  so will be the last
+//

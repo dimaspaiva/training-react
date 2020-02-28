@@ -43,7 +43,7 @@ export default function Card({ data, index, listIndex }) {
         return;
       }
 
-      move(draggedIndex, targetIndex, draggedListIndex, targetListIndex);
+      move(draggedIndex, draggedListIndex, targetListIndex, targetIndex);
 
       item.index = targetIndex;
       item.listIndex = targetListIndex;
