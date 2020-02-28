@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin-top: 21px;
   padding: 0 15px;
-  height: calc(100% - 60px);
+  height: calc(100vh - 180px);
   flex: 0 0 320px;
+  opacity: ${props => (props.done ? 0.675 : 1)};
 
   & + div {
     border-left: 1px solid rgba(30, 30, 30, 0.5);
@@ -14,6 +15,7 @@ export const Container = styled.div`
     display: felx;
     justify-content: space-between;
     align-items: center;
+    height: 60px;
 
     h2 {
       font-weight: 500;

@@ -13,8 +13,8 @@ export const Container = styled.div`
 
   header {
     position: absolute;
-    top: -8px;
-    left: 15px;
+    top: -30px;
+    right: 15px;
   }
 
   p {
