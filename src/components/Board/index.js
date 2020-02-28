@@ -19,7 +19,6 @@ export default function Board() {
         const dragged = draft[fromList].cards[from];
 
         if (!to) {
-          console.log(to);
           draft[fromList].cards.splice(from, 1);
           draft[toList].cards.push(dragged);
           return;

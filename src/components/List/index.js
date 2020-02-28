@@ -18,7 +18,6 @@ export default function List({ data, index: listIndex }) {
       const itemListIndex = monitor.listIndex;
 
       if (itemListIndex !== listIndex) {
-        console.log(itemListIndex, listIndex);
         move(itemIndex, itemListIndex, listIndex);
       }
     }
